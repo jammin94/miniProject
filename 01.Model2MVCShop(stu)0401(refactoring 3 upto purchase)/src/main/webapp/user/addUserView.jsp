@@ -2,7 +2,7 @@
 
 <html>
 <head>
-<title>회원가입</title>
+<title>회원가입!</title>
 
 <link rel="stylesheet" href="/css/admin.css" type="text/css">
 
