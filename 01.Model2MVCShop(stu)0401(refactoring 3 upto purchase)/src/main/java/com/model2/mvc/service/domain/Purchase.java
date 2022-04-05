@@ -21,6 +21,7 @@ public class Purchase {
 	private String tranCode;
 	private int tranNo;
 	
+
 	public Purchase(){
 	}
 	
@@ -91,14 +92,13 @@ public class Purchase {
 		this.tranNo = tranNo;
 	}
 	
+	
+	
 	@Override
 	public String toString() {
-		return "PurchaseVO [buyer=" + buyer + ", divyAddr=" + divyAddr
-				+ ", divyDate=" + divyDate + ", divyRequest=" + divyRequest
-				+ ", orderDate=" + orderDate + ", paymentOption="
-				+ paymentOption + ", purchaseProd=" + purchaseProd
-				+ ", receiverName=" + receiverName + ", receiverPhone="
-				+ receiverPhone + ", tranCode=" + tranCode + ", tranNo="
-				+ tranNo + "]";
+		return "Purchase [buyer=" + buyer + ", purchaseProd=" + purchaseProd + ", divyAddr=" + divyAddr + ", divyDate="
+				+ divyDate + ", divyRequest=" + divyRequest + ", orderDate=" + orderDate + ", paymentOption="
+				+ paymentOption + ", receiverName=" + receiverName + ", receiverPhone=" + receiverPhone + ", tranCode="
+				+ tranCode + ", tranNo=" + tranNo + "]";
 	}
 }

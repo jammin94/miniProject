@@ -42,8 +42,12 @@ function fncGetProductList(currentPage){
 	<tr>
 		<td class="ct_list_b" width="100">No</td>
 		<td class="ct_line02"></td>
-		<td class="ct_list_b" width="150">회원ID</td>
+		<td class="ct_list_b" width="100">상품명</td>
 		<td class="ct_line02"></td>
+		<c:if test="${user.role eq 'admin'}">
+			<td class="ct_list_b" width="150">회원ID</td>
+			<td class="ct_line02"></td>
+		</c:if>
 		<td class="ct_list_b" width="150">회원명</td>
 		<td class="ct_line02"></td>
 		<td class="ct_list_b">전화번호</td>
@@ -61,12 +65,16 @@ function fncGetProductList(currentPage){
 	
 		<tr class="ct_list_pop">
 			<td align="center">
-				<a href="/getPurchase.do?tranNo=${i.tranNo }">${status.count }</a>
+				${status.count }
 			</td>
 			<td></td>
-			<td align="left">
+			<td><a href="/getPurchase.do?tranNo=${i.tranNo }">${i.purchaseProd.prodName }</a></td>
+			<c:if test="${user.role eq 'admin'}">
+			<td></td>
+				<td align="left">
 				<a href="/getUser.do?userId=${i.buyer.userId }">${i.buyer.userId }</a>
-			</td>
+				</td>
+			</c:if>
 			<td></td>
 			<td align="left">${i.receiverName }</td>
 			<td></td>

@@ -18,4 +18,5 @@ public interface ProductService {
 	
 	public int getProductNo(String name) throws Exception;
 	
+	
 }

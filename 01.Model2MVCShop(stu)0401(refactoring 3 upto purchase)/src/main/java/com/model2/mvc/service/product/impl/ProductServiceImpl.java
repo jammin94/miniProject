@@ -34,4 +34,5 @@ public class ProductServiceImpl implements ProductService {
 	public int getProductNo(String name) throws Exception{
 		return productDAO.findProductNo(name);
 	}
+	
 }

@@ -124,13 +124,6 @@ public class PurchaseDAO {
 	}
 	
 	
-	
-	
-	
-	
-	
-	
-	
 	//admin 입장에서 getSaleList하기.
 	public Map<String,Object> getSaleList(Search search) throws Exception{
 		Map<String, Object> map = new HashMap<String, Object>();
@@ -186,14 +179,7 @@ public class PurchaseDAO {
 
 		return map;
 	}
-	
-	
-	
-	
-	
-	
-	
-	
+
 	
 	public void insertPurchase(Purchase purchase) throws Exception{
 		System.out.println("insertPurchase call");
@@ -265,37 +251,37 @@ public class PurchaseDAO {
 	}
 	
 	// 게시판 Page 처리를 위한 전체 Row(totalCount)  return
-		private int getTotalCount(String sql) throws Exception {
-			
-			sql = "SELECT COUNT(*) "+
-			          "FROM ( " +sql+ ") countTable";
-			
-			Connection con = DBUtil.getConnection();
-			PreparedStatement pStmt = con.prepareStatement(sql);
-			ResultSet rs = pStmt.executeQuery();
-			
-			int totalCount = 0;
-			if( rs.next() ){
-				totalCount = rs.getInt(1);
-			}
-			
-			pStmt.close();
-			con.close();
-			rs.close();
-			
-			return totalCount;
+	private int getTotalCount(String sql) throws Exception {
+		
+		sql = "SELECT COUNT(*) "+
+		          "FROM ( " +sql+ ") countTable";
+		
+		Connection con = DBUtil.getConnection();
+		PreparedStatement pStmt = con.prepareStatement(sql);
+		ResultSet rs = pStmt.executeQuery();
+		
+		int totalCount = 0;
+		if( rs.next() ){
+			totalCount = rs.getInt(1);
 		}
 		
-		// 게시판 currentPage Row 만  return 
-		private String makeCurrentPageSql(String sql , Search search){
-			sql = 	"SELECT * "+ 
-						"FROM (		SELECT inner_table. * ,  ROWNUM AS row_seq " +
-										" 	FROM (	"+sql+" ) inner_table "+
-										"	WHERE ROWNUM <="+search.getCurrentPage()*search.getPageSize()+" ) " +
-						"WHERE row_seq BETWEEN "+((search.getCurrentPage()-1)*search.getPageSize()+1) +" AND "+search.getCurrentPage()*search.getPageSize();
-			
-			System.out.println("UserDAO :: make SQL :: "+ sql);	
-			
-			return sql;
-		}
+		pStmt.close();
+		con.close();
+		rs.close();
+		
+		return totalCount;
+	}
+	
+	// 게시판 currentPage Row 만  return 
+	private String makeCurrentPageSql(String sql , Search search){
+		sql = 	"SELECT * "+ 
+					"FROM (		SELECT inner_table. * ,  ROWNUM AS row_seq " +
+									" 	FROM (	"+sql+" ) inner_table "+
+									"	WHERE ROWNUM <="+search.getCurrentPage()*search.getPageSize()+" ) " +
+					"WHERE row_seq BETWEEN "+((search.getCurrentPage()-1)*search.getPageSize()+1) +" AND "+search.getCurrentPage()*search.getPageSize();
+		
+		System.out.println("UserDAO :: make SQL :: "+ sql);	
+		
+		return sql;
+	}
 }
