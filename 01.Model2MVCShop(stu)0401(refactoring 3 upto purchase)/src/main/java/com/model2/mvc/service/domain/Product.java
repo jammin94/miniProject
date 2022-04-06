@@ -12,17 +12,19 @@ public class Product {
 	private String prodName;
 	private int prodNo;
 	private Date regDate;
-	private String proTranCode;
+	private int inventory;
 	
 	public Product(){
 	}
 	
-	public String getProTranCode() {
-		return proTranCode;
+	public int getInventory() {
+		return inventory;
 	}
-	public void setProTranCode(String proTranCode) {
-		this.proTranCode = proTranCode;
+
+	public void setInventory(int inventory) {
+		this.inventory = inventory;
 	}
+
 	public String getFileName() {
 		return fileName;
 	}
@@ -66,10 +68,10 @@ public class Product {
 		this.regDate = regDate;
 	}
 
-	// Override
+	@Override
 	public String toString() {
-		return "ProductVO : [fileName]" + fileName
-				+ "[manuDate]" + manuDate+ "[price]" + price + "[prodDetail]" + prodDetail
-				+ "[prodName]" + prodName + "[prodNo]" + prodNo;
+		return "Product [fileName=" + fileName + ", manuDate=" + manuDate + ", price=" + price + ", prodDetail="
+				+ prodDetail + ", prodName=" + prodName + ", prodNo=" + prodNo + ", regDate=" + regDate + ", inventory="
+				+ inventory + "]";
 	}	
 }

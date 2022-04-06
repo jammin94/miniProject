@@ -75,8 +75,6 @@ public class PurchaseDAO {
 		
 		String sql ="SELECT * FROM TRANSACTION WHERE BUYER_ID='"+buyerId+"' ORDER BY TRAN_NO";
 		
-		PreparedStatement pStmt = con.prepareStatement(sql);
-		
 		System.out.println("Purchase::Original SQL :: " + sql);
 	
 		//==> TotalCount GET
@@ -85,6 +83,8 @@ public class PurchaseDAO {
 		
 		//==> CurrentPage 게시물만 받도록 Query 다시구성
 		sql = makeCurrentPageSql(sql, search);
+		
+		PreparedStatement pStmt = con.prepareStatement(sql);
 		
 		ResultSet rs = pStmt.executeQuery();
 	
@@ -132,8 +132,6 @@ public class PurchaseDAO {
 		
 		String sql ="SELECT * FROM TRANSACTION ORDER BY TRAN_NO";
 		
-		PreparedStatement pStmt = con.prepareStatement(sql);
-		
 		System.out.println("Purchase::Original SQL :: " + sql);
 	
 		//==> TotalCount GET
@@ -142,6 +140,8 @@ public class PurchaseDAO {
 		
 		//==> CurrentPage 게시물만 받도록 Query 다시구성
 		sql = makeCurrentPageSql(sql, search);
+		
+		PreparedStatement pStmt = con.prepareStatement(sql);
 		
 		ResultSet rs = pStmt.executeQuery();
 	
@@ -185,7 +185,7 @@ public class PurchaseDAO {
 		System.out.println("insertPurchase call");
 		Connection con = DBUtil.getConnection();
 		
-		String sql = "INSERT INTO TRANSACTION VALUES (seq_transaction_tran_no.NEXTVAL,?,?,?,?,?,?,?,1,SYSDATE,TO_DATE(?,'YYYY-MM-DD'))";
+		String sql = "INSERT INTO TRANSACTION VALUES (seq_transaction_tran_no.NEXTVAL,?,?,?,?,?,?,?,1,SYSDATE,TO_DATE(?,'YYYY-MM-DD'),?)";
 		
 		PreparedStatement stmt = con.prepareStatement(sql);
 		
@@ -202,6 +202,7 @@ public class PurchaseDAO {
 		//2->배송중
 		//3->배송완료
 		stmt.setString(8, purchase.getDivyDate());
+		stmt.setInt(9, purchase.getQuantity());
 	
 		System.out.println("DAO가 DB에 insert합니다");
 		stmt.executeUpdate();

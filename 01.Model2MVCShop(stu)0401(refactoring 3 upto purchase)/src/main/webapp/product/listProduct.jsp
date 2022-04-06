@@ -179,7 +179,7 @@ function fncGetProductList(currentPage){
 		 		
 		 	</c:when>
 		 	<c:otherwise>
-		 		<a href="javascript:fncGetProductList('${resultPage.currentPage-1}')">이전</a>
+		 		<a href="javascript:fncGetProductList('${resultPage.endUnitPage()-1}')">이전</a>
 		 	</c:otherwise>
 		 </c:choose>
 		 
@@ -192,7 +192,7 @@ function fncGetProductList(currentPage){
 		 		
 		 	</c:when>
 		 	<c:otherwise>
-		 		<a href="javascript:fncGetProductList('${resultPage.currentPage+1}')">다음</a>
+		 		<a href="javascript:fncGetProductList('${resultPage.endUnitPage()+1}')">다음</a>
 		 	</c:otherwise>
 		 </c:choose>
     	</td>
