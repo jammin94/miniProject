@@ -4,16 +4,27 @@ package com.model2.mvc.common;
 public class Search {
 	
 	///Field
-	private int curruntPage;
+	private int currentPage;
 	private String searchCondition;
 	private String searchKeyword;
 	private int pageSize;
+	private String order;
+	
 	
 	///Constructor
 	public Search() {
 	}
 	
 	///Method
+	
+	public String getOrder() {
+		return order;
+	}
+
+	public void setOrder(String order) {
+		this.order = order;
+	}
+
 	public int getPageSize() {
 		return pageSize;
 	}
@@ -22,10 +33,10 @@ public class Search {
 	}
 	
 	public int getCurrentPage() {
-		return curruntPage;
+		return currentPage;
 	}
 	public void setCurrentPage(int curruntPage) {
-		this.curruntPage = curruntPage;
+		this.currentPage = curruntPage;
 	}
 
 	public String getSearchCondition() {
@@ -43,8 +54,7 @@ public class Search {
 
 	@Override
 	public String toString() {
-		return "Search [curruntPage=" + curruntPage + ", searchCondition="
-				+ searchCondition + ", searchKeyword=" + searchKeyword
-				+ ", pageSize=" + pageSize + "]";
+		return "Search [currentPage=" + currentPage + ", searchCondition=" + searchCondition + ", searchKeyword="
+				+ searchKeyword + ", pageSize=" + pageSize + ", order=" + order + "]";
 	}
 }

@@ -22,6 +22,7 @@ public class ListProductAction extends Action{
 		search.setCurrentPage(currentPage);
 		search.setSearchCondition(request.getParameter("searchCondition")); //view에서 얻기
 		search.setSearchKeyword(request.getParameter("searchKeyword")); //view에서 얻기
+		search.setOrder(request.getParameter("order")); //view에서 얻기
 		
 		int pageSize = Integer.parseInt(getServletContext().getInitParameter("pageSize"));
 		int pageUnit = Integer.parseInt(getServletContext().getInitParameter("pageUnit"));

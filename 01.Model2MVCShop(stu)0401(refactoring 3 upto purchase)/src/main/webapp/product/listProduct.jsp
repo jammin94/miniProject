@@ -105,9 +105,9 @@ function fncGetProductList(currentPage){
 			
 			</table>
 			<td align="left">
-		<input type="radio" id="Desc" name="Order" value="Desc">
+		<input type="radio" id="Desc" name="order" value="Desc">
 		<label for="Desc">가격 높은순</label>
-		<input type="radio" id="Asc" name="Order" value="Asc">
+		<input type="radio" id="Asc" name="order" value="Asc">
 		<label for="Asc">가격 낮은순</label>
 	</td>
 		</td>

@@ -87,8 +87,18 @@ public class ProductDAO {
 				sql += "WHERE PRICE LIKE '%" + search.getSearchKeyword()+"%'";
 			}
 		}
+		if(search.getOrder()!=null) {
+			if(search.getOrder().equals("Desc")) {
+				sql +=" ORDER BY PRICE DESC";
+			}
+			if(search.getOrder().equals("Asc")) {
+				sql +=" ORDER BY PRICE ASC";
+			}
+		}else {
+			sql +=" ORDER BY PROD_NO";
+		}
 		
-		sql +=" ORDER BY PROD_NO";
+		
 		
 		System.out.println("ProductDAO::Original SQL :: " + sql);
 		
