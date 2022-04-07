@@ -7,7 +7,7 @@
 
 <link rel="stylesheet" href="/css/admin.css" type="text/css">
 <script>
-function fncGetProductList(currentPage){
+function fncGetPurchaseList(currentPage){
 	document.getElementById("currentPage").value = currentPage;
    	document.detailForm.submit();	
 }
@@ -18,7 +18,7 @@ function fncGetProductList(currentPage){
 
 <div style="width: 98%; margin-left: 10px;">
 
-<form name="detailForm" action="/listUser.do" method="post">
+<form name="detailForm" action="/listPurchase.do?menu=${menu eq 'search'?'search':'manage'}" method="post">
 
 <table width="100%" height="37" border="0" cellpadding="0"	cellspacing="0">
 	<tr>
@@ -149,15 +149,15 @@ function fncGetProductList(currentPage){
 		<input type="hidden" id="currentPage" name="currentPage" value=""/>
 			
 			<c:if test="${resultPage.currentPage>resultPage.pageUnit }">
-				<a href="/listPurchase.do?page=${resultPage.endUnitPage()-1}">이전</a>
+				<a href="javascript:fncGetPurchaseList('${resultPage.endUnitPage()-1}')">이전</a>
 			</c:if>
 			
 			<c:forEach var="i" begin="${resultPage.beginUnitPage}" end="${resultPage.endUnitPage }" varStatus="status" >
-				<a href="/listPurchase.do?page=${status.count }">${status.count }</a>
+				<a href="javascript:fncGetPurchaseList('${status.count }')">${status.count }</a>
 			</c:forEach>
 			
 			<c:if test="${resultPage.endUnitPage<resultPage.maxPage }">
-				<a href="/listPurchase.do?page=${resultPage.endUnitPage()+1}">다음</a>
+				<a href="javascript:fncGetPurchaseList('${resultPage.endUnitPage()+1}')">다음</a>
 			</c:if>
 			
 		</td>

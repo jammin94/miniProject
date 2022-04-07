@@ -166,9 +166,10 @@ public class UserDAO {
 			totalCount = rs.getInt(1);
 		}
 		
+		rs.close();
 		pStmt.close();
 		con.close();
-		rs.close();
+		
 		
 		return totalCount;
 	}

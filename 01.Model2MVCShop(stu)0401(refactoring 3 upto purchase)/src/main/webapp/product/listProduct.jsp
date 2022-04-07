@@ -184,7 +184,7 @@ function fncGetProductList(currentPage){
 		 </c:choose>
 		 
 		 <c:forEach var="i" begin="${resultPage.beginUnitPage}" end="${resultPage.endUnitPage }" varStatus="status">
-		 	<a href="javascript:fncGetProductList('${status.count }');">${status.count }</a>
+		 	<a href="javascript:fncGetProductList('${status.count }')">${status.count }</a>
 		 </c:forEach>
 		 
 		 <c:choose>

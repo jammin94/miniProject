@@ -185,8 +185,9 @@ public class PurchaseDAO {
 		System.out.println("insertPurchase call");
 		Connection con = DBUtil.getConnection();
 		
-		String sql = "INSERT INTO TRANSACTION VALUES (seq_transaction_tran_no.NEXTVAL,?,?,?,?,?,?,?,1,SYSDATE,TO_DATE(?,'YYYY-MM-DD'),?)";
-		
+		//아래는 재고 넣을때 쓰자
+		//String sql = "INSERT INTO TRANSACTION VALUES (seq_transaction_tran_no.NEXTVAL,?,?,?,?,?,?,?,1,SYSDATE,TO_DATE(?,'YYYY-MM-DD'),?)";
+		String sql = "INSERT INTO TRANSACTION VALUES (seq_transaction_tran_no.NEXTVAL,?,?,?,?,?,?,?,1,SYSDATE,TO_DATE(?,'YYYY-MM-DD'))";
 		PreparedStatement stmt = con.prepareStatement(sql);
 		
 		stmt.setInt(1, purchase.getPurchaseProd().getProdNo());
@@ -202,11 +203,13 @@ public class PurchaseDAO {
 		//2->배송중
 		//3->배송완료
 		stmt.setString(8, purchase.getDivyDate());
-		stmt.setInt(9, purchase.getQuantity());
+		//stmt.setInt(9, purchase.getQuantity());
 	
 		System.out.println("DAO가 DB에 insert합니다");
 		stmt.executeUpdate();
 		
+		
+		stmt.close();
 		con.close();
 	}
 	
@@ -230,6 +233,8 @@ public class PurchaseDAO {
 		
 		stmt.executeUpdate();
 		
+		
+		stmt.close();
 		con.close();
 		
 	}

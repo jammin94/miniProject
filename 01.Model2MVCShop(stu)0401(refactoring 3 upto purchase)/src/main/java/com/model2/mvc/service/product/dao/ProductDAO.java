@@ -32,6 +32,8 @@ public class ProductDAO {
 			no = rs.getInt("PROD_NO");
 		
 		}
+		rs.close();
+		stmt.close();
 		con.close();
 		
 		return no;
@@ -61,6 +63,8 @@ public class ProductDAO {
 			product.setRegDate(rs.getDate("REG_DATE"));
 		}
 		
+		rs.close();
+		stmt.close();
 		con.close();
 		
 		return product;
@@ -159,6 +163,8 @@ public class ProductDAO {
 	
 		stmt.executeUpdate();
 		
+
+		stmt.close();
 		con.close();
 	}
 	
@@ -180,6 +186,8 @@ public class ProductDAO {
 		
 		stmt.executeUpdate();
 		
+		
+		stmt.close();
 		con.close();
 	}
 	

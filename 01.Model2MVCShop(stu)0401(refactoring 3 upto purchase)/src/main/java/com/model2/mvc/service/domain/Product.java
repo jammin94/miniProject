@@ -12,18 +12,18 @@ public class Product {
 	private String prodName;
 	private int prodNo;
 	private Date regDate;
-	private int inventory;
+	//private int inventory;
 	
 	public Product(){
 	}
 	
-	public int getInventory() {
-		return inventory;
-	}
+	//public int getInventory() {
+	//	return inventory;
+	//}
 
-	public void setInventory(int inventory) {
-		this.inventory = inventory;
-	}
+	//public void setInventory(int inventory) {
+	//	this.inventory = inventory;
+	//}
 
 	public String getFileName() {
 		return fileName;
@@ -71,7 +71,14 @@ public class Product {
 	@Override
 	public String toString() {
 		return "Product [fileName=" + fileName + ", manuDate=" + manuDate + ", price=" + price + ", prodDetail="
-				+ prodDetail + ", prodName=" + prodName + ", prodNo=" + prodNo + ", regDate=" + regDate + ", inventory="
-				+ inventory + "]";
-	}	
+				+ prodDetail + ", prodName=" + prodName + ", prodNo=" + prodNo + ", regDate=" + regDate + "]";
+	}
+
+	//@Override
+	//public String toString() {
+	//	return "Product [fileName=" + fileName + ", manuDate=" + manuDate + ", price=" + price + ", prodDetail="
+	//			+ prodDetail + ", prodName=" + prodName + ", prodNo=" + prodNo + ", regDate=" + regDate + ", inventory="
+	//			+ inventory + "]";
+	//}
+	
 }
